@@ -1,11 +1,11 @@
-import tab_1 from '../assets/tab-1.png'
+import tab_1 from '../assets/tab-1-old.png'
 import circle_dark from '../assets/circle-dark.png'
 import circle_light from '../assets/circle-light.png'
 import triangle from '../assets/triangle.png'
 import triangle_green from '../assets/triangle-green.png'
 import tab_2 from '../assets/tab-2.png'
-import laptop_3 from '../assets/laptop-3.png'
-import tab_4 from '../assets/tab-4.png'
+import laptop_3 from '../assets/laptop-3-old.png'
+import tab_4 from '../assets/tab-4-old.png'
 import test_1 from '../assets/test-1.png'
 import test_2 from '../assets/test-2.png'
 import laptop_last from '../assets/laptop-last.png'
@@ -32,11 +32,11 @@ const Home = () => {
 				            <span className="green _3"></span>
                         </div>
                         <div className="col-lg-6 col-md-6 my-auto pos-relative img-small">
-                            <img className="tab-1 margin-small" src={tab_1}/>
-                            <span><img src={circle_dark}/></span>
-                            <span><img src={circle_light}/></span>
-                            <span><img src={triangle}/></span>
-                            <span><img src={triangle_green}/></span>
+                            <img alt="" className="tab-1 margin-small" src={tab_1}/>
+                            <span><img alt="" src={circle_dark}/></span>
+                            <span><img alt="" src={circle_light}/></span>
+                            <span><img alt="" src={triangle}/></span>
+                            <span><img alt="" src={triangle_green}/></span>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const Home = () => {
                 <div className="container-1440">
                     <div className="row">
                         <div className="col-lg-6 col-md-6 my-auto pos-relative">
-                            <img className="margin-small" src={tab_2}/>
+                            <img alt="" className="margin-small" src={tab_2}/>
                         </div>
                         <div className="col-lg-6 col-md-6 my-auto pos-relative my-auto">
                             <h3 className="text-uppercase font-weight-bold">Take a look at an example report</h3>
@@ -74,7 +74,7 @@ const Home = () => {
                             <span className="green _2-3"></span>
                         </div>
                         <div className="col-lg-6 col-md-6 my-auto pos-relative">
-                            <img className="laptop margin-small" src={laptop_3}/>
+                            <img alt="" className="laptop margin-small" src={laptop_3}/>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ const Home = () => {
                 <div className="container-1440">
                     <div className="row">
                         <div className="col-lg-6 col-md-6 my-auto pos-relative">
-                            <img className="margin-small m-top" src={tab_4}/>
+                            <img alt="" className="margin-small m-top" src={tab_4}/>
                         </div>
                         <div className="col-lg-6 col-md-6 my-auto pos-relative my-auto">
                             <h3 className="text-uppercase font-weight-bold">Trusted coverage metrics for your reports.</h3>
@@ -111,8 +111,8 @@ const Home = () => {
                                     <p>Coverage Master is one of our agency’s most used tools. It saves us so much time in demonstrating ROI for our clients by putting together something that looks great, can be shared instantly and offers metrics that others can’t. We couldn’t live without it!</p>
                                 </div>
                                 <div className="test-details">
-                                    <div class="image-test">
-                                        <img src={test_1}/>
+                                    <div className="image-test">
+                                        <img alt="" src={test_1}/>
                                     </div>
                                     <div className="test-name">
                                         <p>Michael Rodney</p>
@@ -127,7 +127,7 @@ const Home = () => {
                                 </div>
                                 <div className="test-details">
                                     <div className="image-test">
-                                        <img src={test_2}/>
+                                        <img alt="" src={test_2}/>
                                     </div>
                                     <div className="test-name">
                                         <p>Jessica McCafferty Brennan</p>
@@ -163,7 +163,7 @@ const Home = () => {
                             <span className="purple _sec-6-2"></span>
                         </div>
                         <div className="col-lg-6 col-md-6 pos-relative index-minus">
-                            <img className="last-laptop margin-small" src={laptop_last}/>
+                            <img alt="" className="last-laptop margin-small" src={laptop_last}/>
                         </div>
                     </div>
                 </div>

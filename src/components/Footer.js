@@ -10,7 +10,7 @@ const Footer = () => {
 
                         <div className="col-lg-4">
                             <div className="col-footer-1">
-                                <img src={logo_white}/>
+                                <img alt="" src={logo_white}/>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse.ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
                                 <div>
                                     <span className="face-hov fab fa-facebook-f fa-fw"></span>

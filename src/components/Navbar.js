@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import logo from './../assets/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
     return ( 
         <div>
             <header className = "header-main container-1440-vw">
                 <nav className="header-absolute navbar navbar-default navbar-expand-lg container-1440-vw">
-	                <Link className="navbar-brand" to="/"><img src={logo} /></Link>
+	                <Link className="navbar-brand" to="/"><img alt="" src={logo} /></Link>
                     <button 
                         className="navbar-toggler" 
                         type="button" 
@@ -16,7 +18,8 @@ const Navbar = () => {
                         aria-expanded="false" 
                         aria-label="Toggle navigation">
 	                    <span className="navbar-toggler-icon">
-	  	                    <i className="fas fa-bars"></i>
+	  	                    {/* <i className="fas fa-bars"></i> */}
+                              <FontAwesomeIcon icon={faBars} />
 	                    </span>
 	                </button>
 
@@ -44,7 +47,7 @@ const Navbar = () => {
                             <Link className="nav-link" to="/">Help & Advice</Link>
                             </li>
                         </ul>
-                        <a className="nav-link text-white" to="/">Sign In</a>
+                        <Link className="nav-link text-white" to="/">Sign In</Link>
                         <button className="text-white btn-head">Start Free Trial</button>
                     </div>
                 </nav>
