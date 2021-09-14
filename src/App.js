@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import HomeNew from "./screens/Home";
 
@@ -9,17 +8,15 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/new">
+        <HomeNew />
+        {/* <Switch> */}
+          {/* <Route exact path="/">
             <HomeNew />
-          </Route>
-          <Route path="*">
+          </Route> */}
+          {/* <Route path="*">
             <h1>Not found</h1>
-          </Route>
-        </Switch>
+          </Route> */}
+        {/* </Switch> */}
         <Footer />
       </div>
     </Router>

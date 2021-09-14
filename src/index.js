@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
-import './styles/Style.css';
+import './style/bootstrap4.5.css';
+import './style/style.css';
+import './style/keyframes.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import './links/fontawesome/css/all.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

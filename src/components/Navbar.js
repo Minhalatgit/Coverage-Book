@@ -1,60 +1,79 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from './../assets/logo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { Logo } from "../assets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-    return ( 
-        <div>
-            <header className = "header-main container-1440-vw">
-                <nav className="header-absolute navbar navbar-default navbar-expand-lg container-1440-vw">
-	                <Link className="navbar-brand" to="/"><img alt="" src={logo} /></Link>
-                    <button 
-                        className="navbar-toggler" 
-                        type="button" 
-                        data-toggle="collapse" 
-                        data-target="#navbarSupportedContent" 
-                        aria-controls="navbarSupportedContent" 
-                        aria-expanded="false" 
-                        aria-label="Toggle navigation">
-	                    <span className="navbar-toggler-icon">
-	  	                    {/* <i className="fas fa-bars"></i> */}
-                              <FontAwesomeIcon icon={faBars} />
-	                    </span>
-	                </button>
+  const [selectedLink, setSelectedLink] = useState("Home");
+  const navBarLinks = [
+    { title: "Home", link: "#" },
+    { title: "How it Works", link: "#" },
+    { title: "Solutions", link: "#" },
+    { title: "Why Us?", link: "#" },
+    { title: "Pricing", link: "#" },
+    { title: "Blog", link: "#" },
+    { title: `Help & Advice`, link: "#" },
+  ];
+  return (
+    <>
+      <header className="header-main container-header" id="top">
+        <nav className="header-absolute navbar navbar-default navbar-expand-lg container-header">
+          <Link className="navbar-brand" to="/">
+            <img alt="" src={Logo} />
+          </Link>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon">
+              <i class="fas fa-bars"></i>
+            </span>
+          </button>
 
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item active">
-                            <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link className="nav-link" to="/">How it Works</Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link className="nav-link" to="/">Solutions</Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link className="nav-link" to="/">Why Us?</Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link className="nav-link" to="/">Pricing</Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link className="nav-link" to="/">Blog</Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link className="nav-link" to="/">Help & Advice</Link>
-                            </li>
-                        </ul>
-                        <Link className="nav-link text-white" to="/">Sign In</Link>
-                        <button className="text-white btn-head">Start Free Trial</button>
-                    </div>
-                </nav>
-            </header>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mx-auto nav-mine">
+              {navBarLinks.map((item, i) => {
+                return (
+                  <li
+                    onClick={() => setSelectedLink(item.title)}
+                    key={i}
+                    className="nav-item"
+                  >
+                    <Link
+                      className={`nav-link ${
+                        selectedLink === item.title && "active"
+                      }`}
+                      to={item.link}
+                    >
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <button
+              className="btn-head btn-no-bg btn-norm"
+              onClick={() => console.log("Sign In")}
+            >
+              Sign In
+            </button>
+            <button
+              className="btn-head btn-norm"
+              onClick={() => console.log("Free Trial")}
+            >
+              Start Free Trial
+            </button>
+          </div>
+        </nav>
+      </header>
+    </>
+  );
+};
 
-        </div>
-     );
-}
- 
 export default Navbar;

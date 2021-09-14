@@ -1,310 +1,356 @@
-import tab_1 from "../assets/tab-1-old.png";
-import tab_2 from "../assets/tab-2.png";
-import tab_4 from "../assets/tab-4-old.png";
-import circle_dark from "../assets/circle-dark.png";
-import circle_light from "../assets/circle-light.png";
-import triangle from "../assets/triangle.png";
-import triangle_green from "../assets/triangle-green.png";
-import test_1 from "../assets/test-1.png";
-import test_2 from "../assets/test-2.png";
-import laptop_last from "../assets/laptop-last.png";
-import laptop_3 from "../assets/laptop-3-old.png";
 import { useState } from "react";
+import Slider from "react-slick";
+import {
+  DesignStar,
+  CircleTransparent,
+  Triangle,
+  Tablet1,
+  CircleGradient,
+  ShareIcon,
+  GradientBlueCircle,
+  MobSec2,
+  Laptop,
+  AppleScreen,
+  Test1,
+  Test2,
+  Test3,
+  Test4,
+  Test5,
+  Test6,
+  Test7,
+} from "../assets";
 
-const BlueGradientBtn = ({ title, _onBtnClick }) => {
-  return (
-    <button onClick={_onBtnClick} className="btn-regular">
-      {title}
-    </button>
-  );
-};
-
-const InputWithButton = ({
-  inputValue,
-  _inputOnChange,
-  placeholder,
-  _onBtnClick,
-  btnTitle,
-}) => {
-  return (
-    <div className="input-btn">
-      <input
-        type="text"
-        placeholder={placeholder}
-        value={inputValue}
-        onChange={(e) => _inputOnChange(e.target.value)}
-      />
-      <button onClick={_onBtnClick} className="input-btn-inner">
-        {btnTitle}
-      </button>
-    </div>
-  );
-};
-
-const ClientReviewCard = ({
-  review,
-  reviewerImg,
-  reviewerName,
-  reviewerProfession,
-}) => {
-  return (
-    <div className="testimonial">
-      <div className="test-said">
-        <p>{review}</p>
-      </div>
-      <div className="test-details">
-        <div className="image-test">
-          <img alt="" src={reviewerImg} />
-        </div>
-        <div className="test-name">
-          <p>{reviewerName}</p>
-          <span>{reviewerProfession}</span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-let animitableImages = [circle_dark, circle_light, triangle, triangle_green];
 
 const Home = () => {
-  // state
-  const [yourWorkEmail, setYourWorkEmail] = useState("");
-  const [reviewsData, setReviewsData] = useState([
-    {
-      review:
-        "Coverage Master is one of our agency’s most used tools. It saves us so much time in demonstrating ROI for our clients by putting together something that looks great, can be shared instantly and offers metrics that others can’t. We couldn’t live without it!",
-      reviewerImg: test_1,
-      reviewerName: "Michael Rodney",
-      reviewerProfession: "Account Director, Fanclub PR",
-    },
-    {
-      review:
-        "Coverage Master is one of our agency’s most used tools. It saves us so much time in demonstrating ROI for our clients by putting together something that looks great, can be shared instantly and offers metrics that others can’t. We couldn’t live without it!",
-      reviewerImg: test_2,
-      reviewerName: "Jessica McCafferty Brennan",
-      reviewerProfession: "Vice President, Janice McCafferty Communications",
-    },
-  ]);
-  const [yourWorkEmailPrReport, setYourWorkEmailPrReport] = useState("");
+  // images states
+  const [sec1CoverImg, setsec1CoverImg] = useState(Tablet1);
+  const [sec3MainImg, setSec3MainImg] = useState(MobSec2);
+  const [sec4MainImg, setSec4MainImg] = useState(Laptop);
+  const [sec5MainImg, setSec5MainImg] = useState(AppleScreen);
 
-  // Button function
-  const _onViewExampleBtnClick = () => {
-    console.log("View Example");
+  // sec 2 states
+  const [name, setName] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-
-  const _onTryItBtnClick = (data) => {
-    console.log("_onTryItBtnClick", data);
-  };
-
-  const _onHowItWorksBtnClick = () => {
-    console.log("_onHowItWorksBtnClick");
-  };
-
-  const _onLrnMeasuringPrBtnClick = () => {
-    console.log("_onLrnMeasuringPrBtnClick");
-  };
-
   return (
     <>
-      {/* Section 1 */}
-      <section className="section-1 bg-image-sec-1">
-        <div className="container-1440-vw">
-          <div className="row pdbt rev-mob-col">
-            <div className="col-lg-6 col-md-6 my-auto pos-relative">
-              <h1 className="font-weight-bold text-uppercase h1-sec1">
-                Make Coverage reports, faster
+      {/* section 1 */}
+      <section className="section-1">
+        <div className="design">
+          <span className="design-star p-abs">
+            <img alt="" src={DesignStar} />
+          </span>
+          <span className="design-circle p-abs">
+            <img alt="" src={CircleTransparent} />
+          </span>
+          <span className="design-triangle p-abs">
+            <img alt="" src={Triangle} />
+          </span>
+          <div className="container-1200">
+            <div className="sec-1-text">
+              <h1>
+                Make <span className="font-weight font-curve"> Coverage</span>
+                <br />
+                <span className="font-weight"> reports, </span> faster
               </h1>
-              <p className="p-vw w-75 margin-40">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit ess
-              </p>
-              <InputWithButton
-                inputValue={yourWorkEmail}
-                _inputOnChange={setYourWorkEmail}
-                placeholder="Your Work Email"
-                _onBtnClick={() => _onTryItBtnClick(yourWorkEmail)}
-                btnTitle="Try in Under 5 Mins"
-              />
-              <span className="green _1"></span>
-              <span className="purple _2"></span>
-              <span className="green _3"></span>
             </div>
-            <div className="col-lg-6 col-md-6 my-auto pos-relative img-small">
-              <img alt="" className="tab-1 margin-small" src={tab_1} />
-              {animitableImages.map((item, i) => {
+            <div className="sec-1-img text-center">
+              <img alt="" src={sec1CoverImg} />
+            </div>
+          </div>
+          <span className="design-triangle _right p-abs">
+            <img alt="" src={DesignStar} />
+          </span>
+          <span className="circle-gradient p-abs">
+            <img alt="" src={CircleGradient} />
+          </span>
+        </div>
+      </section>
+
+      {/* section 2 */}
+      <section className="section-2" id="form-fill">
+        <span className="star _2"></span>
+        <span className="gradient _2"></span>
+        <div className="container-1200">
+          <div className="row">
+            <div className="col-lg-6 col-md-6 my-auto">
+              <div className="text-portion-1">
+                <h1 className="heading-huge">
+                  Tired of <span className="blue-black">reporting</span> like
+                  it’s still 1999?
+                </h1>
+                <p className="p-para">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                  <br />
+                  <br />
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                  occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
+                </p>
+                <a href="#form-fill" className="form-design">
+                  Fill our form to start free trial
+                </a>
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6 my-auto" id="form-fill">
+              <div className="form">
+                <input
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  name=""
+                  placeholder="Name"
+                  value={name}
+                />
+                <input
+                  onChange={(e) => setPhoneNo(e.target.value)}
+                  type="number"
+                  name=""
+                  placeholder="Phone No"
+                  value={phoneNo}
+                />
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="Email"
+                  name=""
+                  placeholder="Email"
+                  value={email}
+                />
+                <textarea
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Message"
+                  value={message}
+                ></textarea>
+                <div className="btn-form">
+                  <button
+                    className="btn-norm"
+                    onClick={() => {
+                      console.log(name, phoneNo, email, message);
+                    }}
+                  >
+                    <span>
+                      <img alt="" src={ShareIcon} />
+                    </span>
+                    <span>Send</span>
+                  </button>
+                </div>
+              </div>
+              <img alt="" className="circle-form" src={GradientBlueCircle} />
+            </div>
+          </div>
+        </div>
+        <span className="triangle _2"></span>
+      </section>
+
+      {/* section 3 */}
+      <section className="section-3">
+        <span className="gradient _3"></span>
+        <span className="triangle _3"></span>
+        <div className="container-1200">
+          <div className="row col-rev-mob">
+            <div className="col-lg-6 col-md-6 my-auto for-small-screen">
+              <div className="sec-3-images">
+                <img alt="" src={sec3MainImg} />
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6 my-auto">
+              <div className="text-portion-1">
+                <h1 className="heading-huge">
+                  Take a look at an{" "}
+                  <span className="blue-black">example report</span>
+                </h1>
+                <p className="p-para">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                  <br />
+                  <br />
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                  occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
+                </p>
+                <a href="#form-fill" className="form-design">
+                  Fill our form to start free trial
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span className="star _3"></span>
+        <span className="circle _3"></span>
+      </section>
+
+      {/* section 4 */}
+      <section className="section-4">
+        <span className="triangle _4"></span>
+        <span className="star _4"></span>
+        <div className="container-1200">
+          <div className="row">
+            <div className="col-lg-6 col-md-6 my-auto">
+              <div className="text-portion-1">
+                <h1 className="heading-huge">
+                  We turn your coverage links into a{" "}
+                  <span className="blue-black">beautiful report.</span>
+                </h1>
+                <p className="p-para">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                  <br />
+                  <br />
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                  occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
+                </p>
+                <a href="#form-fill" className="form-design">
+                  Fill our form to start free trial
+                </a>
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6 my-auto for-small-screen-laptop">
+              <div className="sec-4-images">
+                <img alt="" src={sec4MainImg} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span className="gradient _4"></span>
+      </section>
+
+      {/* section 5 */}
+      <section className="section-5">
+        <span className="triangle _5"></span>
+        <span className="gradient _5"></span>
+        <div className="container-1200">
+          <div className="row col-rev-mob">
+            <div className="col-lg-6 col-md-6 my-auto for-small-screen-laptop">
+              <div className="sec-5-images">
+                <img alt="" src={sec5MainImg} />
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-md-6 my-auto">
+              <div className="text-portion-1">
+                <h1 className="heading-huge">
+                  Trusted coverage{" "}
+                  <span className="blue-black">metrics for your </span>reports.
+                </h1>
+                <p className="p-para">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                  <br />
+                  <br />
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                  occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
+                </p>
+                <a href="#form-fill" className="form-design">
+                  Fill our form to start free trial
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span className="star _4"></span>
+      </section>
+
+      {/* section 6 */}
+      <section className="section-6">
+        <div className="container-1200">
+          <div className="testimages">
+            {[Test1, Test2, Test3, Test4, Test5, Test6, Test7].map(
+              (item, i) => {
                 return (
                   <span key={i}>
                     <img alt="" src={item} />
                   </span>
                 );
-              })}
-            </div>
+              }
+            )}
           </div>
-        </div>
-      </section>
 
-      {/* Section 2 */}
-      <section className="section-2 bg-left-sec-2 pos-relative pdbt-80">
-        <div className="container-1440">
-          <div className="row">
-            <div className="col-lg-6 col-md-6 my-auto pos-relative">
-              <img alt="" className="margin-small" src={tab_2} />
-            </div>
-            <div className="col-lg-6 col-md-6 my-auto pos-relative my-auto">
-              <h3 className="text-uppercase font-weight-bold">
-                Take a look at an example report
-              </h3>
-              <p className="margin-40">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Quis ipsum
-                suspendisse ultrices gravida. Risus commodo viverra maecenas.
-              </p>
-              <BlueGradientBtn
-                title="View Example"
-                _onBtnClick={_onViewExampleBtnClick}
-              />
-              <span className="purple _2-1"></span>
-              <span className="green _2-2"></span>
-              <span className="green _2-3"></span>
-            </div>
+          <div>
+            <h1 className="heading-huge text-center">
+              What Our <span className="blue-black">Customer Say?</span>
+            </h1>
           </div>
-        </div>
-      </section>
 
-      {/* Section 3 */}
-      <section className="section-3 bg-left-sec-2 pos-relative pdbt-80 no-top">
-        <div className="container-1440">
-          <div className="row rev-mob-col">
-            <div className="col-lg-6 col-md-6 my-auto pos-relative my-auto">
-              <h3 className="text-uppercase font-weight-bold">
-                We turn your coverage links into a beautiful report.
-              </h3>
-              <p className="margin-40">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Quis ipsum
-                suspendisse ultrices gravida. Risus commodo viverra maecenas.
-              </p>
-              {/* <button className="btn-regular">Learn About How It Work</button> */}
-              <BlueGradientBtn
-                title="Learn About How It Work"
-                _onBtnClick={_onHowItWorksBtnClick}
-              />
-              <span className="purple _2-1"></span>
-              <span className="green _2-2"></span>
-              <span className="green _2-3"></span>
-            </div>
-            <div className="col-lg-6 col-md-6 my-auto pos-relative">
-              <img alt="" className="laptop margin-small" src={laptop_3} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4 */}
-      <section className="section-4 bg-left-sec-2 pos-relative pdbt-80 no-top">
-        <div className="container-1440">
-          <div className="row">
-            <div className="col-lg-6 col-md-6 my-auto pos-relative">
-              <img alt="" className="margin-small m-top" src={tab_4} />
-            </div>
-            <div className="col-lg-6 col-md-6 my-auto pos-relative my-auto">
-              <h3 className="text-uppercase font-weight-bold">
-                Trusted coverage metrics for your reports.
-              </h3>
-              <p className="margin-40">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Quis ipsum
-                suspendisse ultrices gravida. Risus commodo viverra maecenas.
-              </p>
-              <BlueGradientBtn
-                title="Learn About Measuring PR"
-                _onBtnClick={_onLrnMeasuringPrBtnClick}
-              />
-              <span className="purple _2-1"></span>
-              <span className="green _2-2"></span>
-              <span className="green _2-3"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5 */}
-      <section className="section-5 bg-left-sec-2 pos-relative pdbt-80">
-        <div className="container-1440">
-          <div className="row rev-col">
-            <div className="col-lg-6 pos-relative bg-image-test">
-              <span className="purple _test-2"></span>
-              {reviewsData.map((item, i) => {
+          <div className="testimonial-slider">
+            <Slider {...settings}>
+              {[1, 2, 3].map((item, i) => {
                 return (
-                  <ClientReviewCard
-                    key={i}
-                    review={item.review}
-                    reviewerImg={item.reviewerImg}
-                    reviewerName={item.reviewerName}
-                    reviewerProfession={item.reviewerProfession}
-                  />
+                  <div key={i} className="test-text">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing
+                      elit, sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua.{" "}
+                    </p>
+                    <div className="clients-detail">
+                      <h6>Fergus Douchebag</h6>
+                      <span>Client</span>
+                      <div className="ratings">
+                        <span className="fa fa-star fill"></span>
+                        <span className="fa fa-star fill"></span>
+                        <span className="fa fa-star fill"></span>
+                        <span className="fa fa-star fill"></span>
+                        <span className="fa fa-star fill"></span>
+                      </div>
+                    </div>
+                  </div>
                 );
               })}
-            </div>
-
-            <div className="col-lg-6 pos-relative my-auto tesiomial-right">
-              <h3 className="text-uppercase font-weight-bold">Testimonial</h3>
-              <p>
-                Here’s what some of our happy customers are saying about their
-                experiences using We’ve been reducing reporting-induced
-                headaches worldwide since 2014.
-              </p>
-              <span className="green _test-1"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6 */}
-      <section className="section-6 bg-left-sec-2 pos-relative pdbt-80">
-        <div className="container-1440">
-          <div className="row rev-mob-col">
-            <div className="col-lg-6 col-md-6 pos-relative my-auto m-top">
-              <h3 className="text-uppercase font-weight-bold">
-                Tired of reporting like it’s still 1999?
-              </h3>
-              <p className="margin-vw">
-                Take the pain out of PR reporting. Try Coverage master today.
-              </p>
-              <InputWithButton
-                inputValue={yourWorkEmailPrReport}
-                _inputOnChange={setYourWorkEmailPrReport}
-                placeholder="Your Work Email"
-                _onBtnClick={() => _onTryItBtnClick(yourWorkEmailPrReport)}
-                btnTitle="Try in Under 5 Mins"
-              />
-              <p>Free trial, no commitment, no credit card required.</p>
-              <span className="green _sec-6-1"></span>
-              <span className="purple _sec-6-2"></span>
-            </div>
-            <div className="col-lg-6 col-md-6 pos-relative index-minus">
-              <img
-                alt=""
-                className="last-laptop margin-small"
-                src={laptop_last}
-              />
-            </div>
+            </Slider>
           </div>
         </div>
       </section>
